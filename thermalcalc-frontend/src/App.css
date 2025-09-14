@@ -1,0 +1,291 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: oklch(1 0 0); /* Branco */
+  --foreground: oklch(0.26 0 0); /* #424242 */
+  --card: oklch(1 0 0); /* Branco */
+  --card-foreground: oklch(0.26 0 0);
+  --popover: oklch(1 0 0); /* Branco */
+  --popover-foreground: oklch(0.26 0 0);
+  --primary: oklch(0.54 0.15 149); /* #7CB342 - Verde ThermalCalc */
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.55 0.24 263); /* #1976D2 - Azul ThermalCalc */
+  --secondary-foreground: oklch(1 0 0);
+  --muted: oklch(0.98 0 0); /* #FAFAFA - Cinza muito claro */
+  --muted-foreground: oklch(0.62 0 0); /* #9E9E9E */
+  --accent: oklch(0.65 0.18 263); /* #42A5F5 - Azul claro ThermalCalc */
+  --accent-foreground: oklch(1 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.88 0 0); /* #E0E0E0 - Cinza mais escuro para bordas */
+  --input: oklch(0.96 0 0); /* #F5F5F5 - Fundo dos inputs */
+  --ring: oklch(0.55 0.24 263); /* Azul ThermalCalc para focus */
+  --chart-1: oklch(0.54 0.15 149); /* Verde ThermalCalc */
+  --chart-2: oklch(0.55 0.24 263); /* Azul ThermalCalc */
+  --chart-3: oklch(0.65 0.18 263); /* Azul claro ThermalCalc */
+  --chart-4: oklch(0.62 0.19 149); /* Verde sucesso */
+  --chart-5: oklch(0.68 0.16 75); /* Laranja aviso */
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.26 0 0);
+  --sidebar-primary: oklch(0.54 0.15 149);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.98 0 0);
+  --sidebar-accent-foreground: oklch(0.26 0 0);
+  --sidebar-border: oklch(0.88 0 0);
+  --sidebar-ring: oklch(0.55 0.24 263);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+    /* Melhor suporte para mobile */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    /* Garantir fundo branco sempre */
+    background-color: white !important;
+  }
+  
+  /* Melhorar touch targets para mobile */
+  button, input, select, textarea {
+    @apply touch-manipulation;
+  }
+  
+  /* Prevenir zoom em inputs no iOS */
+  input[type="text"], 
+  input[type="number"], 
+  input[type="email"], 
+  input[type="password"], 
+  select, 
+  textarea {
+    font-size: 16px;
+  }
+  
+  @media (max-width: 640px) {
+    input[type="text"], 
+    input[type="number"], 
+    input[type="email"], 
+    input[type="password"], 
+    select, 
+    textarea {
+      font-size: 16px !important;
+    }
+  }
+}
+
+/* Estilos customizados ThermalCalc */
+.thermal-gradient {
+  background: linear-gradient(135deg, #7CB342 0%, #1976D2 100%);
+}
+
+.thermal-card {
+  @apply bg-card border border-border rounded-lg p-4 sm:p-6 transition-shadow duration-300;
+  /* Sombreamento mais forte para melhor contraste */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.thermal-card:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15), 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.thermal-button-primary {
+  @apply bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-3 rounded-lg font-semibold transition-colors duration-300 touch-manipulation;
+  min-height: 44px; /* Mínimo recomendado para touch targets */
+}
+
+.thermal-button-secondary {
+  @apply bg-secondary text-secondary-foreground hover:bg-secondary/90 px-6 py-3 rounded-lg font-semibold transition-colors duration-300 touch-manipulation;
+  min-height: 44px; /* Mínimo recomendado para touch targets */
+}
+
+.thermal-input {
+  @apply border-2 rounded-lg px-4 py-3 text-foreground bg-background focus:border-ring focus:outline-none transition-colors duration-300 touch-manipulation;
+  min-height: 44px; /* Mínimo recomendado para touch targets */
+  font-size: 16px; /* Prevenir zoom no iOS */
+  /* Borda mais visível para melhor contraste */
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.thermal-input:focus {
+  border-color: var(--ring);
+  box-shadow: 0 0 0 3px rgba(66, 165, 245, 0.1), 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Melhorias específicas para mobile */
+@media (max-width: 640px) {
+  .thermal-card {
+    @apply p-3;
+    /* Garantir que não saia da tela */
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
+  /* Melhor espaçamento em telas pequenas */
+  .container {
+    @apply px-3;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
+  /* Ajustar tamanhos de fonte para mobile */
+  h1 {
+    @apply text-xl;
+  }
+  
+  h2 {
+    @apply text-2xl;
+  }
+  
+  /* Melhorar legibilidade em telas pequenas */
+  .text-muted-foreground {
+    @apply text-sm;
+  }
+  
+  /* Garantir que selects não saiam da tela */
+  select, .select-trigger {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  /* Melhorar inputs em mobile */
+  input, select, textarea {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+/* Melhorar acessibilidade e usabilidade */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Melhorar contraste para acessibilidade */
+@media (prefers-contrast: high) {
+  :root {
+    --border: oklch(0.5 0 0);
+    --input: oklch(0.5 0 0);
+  }
+}
+
+/* Melhorar performance em dispositivos móveis */
+.thermal-card, .thermal-button-primary, .thermal-button-secondary {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+/* Otimizações para PWA */
+@media (display-mode: standalone) {
+  body {
+    @apply select-none;
+  }
+  
+  /* Adicionar padding para safe areas em dispositivos com notch */
+  .container {
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
+  }
+  
+  header {
+    padding-top: env(safe-area-inset-top);
+  }
+  
+  footer {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* Garantir que elementos não saiam da viewport */
+* {
+  box-sizing: border-box;
+}
+
+.container, .thermal-card, .grid {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Melhorar responsividade de selects */
+[role="combobox"], .select-trigger {
+  max-width: 100% !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Melhorar contraste de selects e botões */
+[role="combobox"], .select-trigger {
+  border: 1px solid rgba(0, 0, 0, 0.15) !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+}
+
+[role="combobox"]:focus, .select-trigger:focus {
+  border-color: var(--ring) !important;
+  box-shadow: 0 0 0 3px rgba(66, 165, 245, 0.1), 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Melhorar contraste das tabs */
+.bg-muted {
+  background-color: rgba(0, 0, 0, 0.04) !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Melhorar contraste dos botões de resultado */
+.thermal-button-primary, .thermal-button-secondary {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.thermal-button-primary:hover, .thermal-button-secondary:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+

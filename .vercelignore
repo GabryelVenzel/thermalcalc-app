@@ -1,0 +1,16 @@
+# Node
+thermalcalc-frontend/node_modules
+thermalcalc-frontend/dist
+thermalcalc-frontend/.vite
+npm-debug.log
+.npm
+
+# Python
+thermalcalc-project/venv
+__pycache__
+*.pyc
+
+# IDE/OS
+.vscode
+.idea
+.DS_Store
