@@ -20,11 +20,11 @@
     },
     {
       "src": "/assets/(.*)",
-      "dest": "thermalcalc-frontend/dist/assets/$1"
+      "dest": "/thermalcalc-frontend/assets/$1"
     },
     {
       "src": "/(.*)",
-      "dest": "thermalcalc-frontend/dist/index.html"
+      "dest": "/thermalcalc-frontend/index.html"
     }
   ]
 }
