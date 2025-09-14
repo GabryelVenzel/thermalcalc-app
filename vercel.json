@@ -2,9 +2,11 @@
   "version": 2,
   "builds": [
     {
-      "src": "thermalcalc-frontend/package.json",
+      "src": "thermalcalc-frontend",
       "use": "@vercel/static-build",
-      "config": { "distDir": "dist" }
+      "config": {
+        "distDir": "dist"
+      }
     },
     {
       "src": "thermalcalc-project/src/main.py",
@@ -18,12 +20,11 @@
     },
     {
       "src": "/assets/(.*)",
-      "headers": { "cache-control": "s-maxage=31536000, immutable" },
-      "dest": "/thermalcalc-frontend/dist/assets/$1"
+      "dest": "thermalcalc-frontend/dist/assets/$1"
     },
     {
       "src": "/(.*)",
-      "dest": "/thermalcalc-frontend/dist/index.html"
+      "dest": "thermalcalc-frontend/dist/index.html"
     }
   ]
 }
