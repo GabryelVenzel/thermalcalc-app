@@ -2,16 +2,13 @@
   "version": 2,
   "builds": [
     {
-      "src": "thermalcalc-project/src/main.py",
-      "use": "@vercel/python",
-      "config": { "maxLambdaSize": "15mb" }
-    },
-    {
       "src": "thermalcalc-frontend/package.json",
       "use": "@vercel/static-build",
-      "config": {
-        "distDir": "dist"
-      }
+      "config": { "distDir": "dist" }
+    },
+    {
+      "src": "thermalcalc-project/src/main.py",
+      "use": "@vercel/python"
     }
   ],
   "routes": [
@@ -21,6 +18,7 @@
     },
     {
       "src": "/assets/(.*)",
+      "headers": { "cache-control": "s-maxage=31536000, immutable" },
       "dest": "/thermalcalc-frontend/dist/assets/$1"
     },
     {
