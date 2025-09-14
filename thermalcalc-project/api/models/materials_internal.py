@@ -47,13 +47,13 @@ MATERIALS = [
         't_min': 20,
         't_max': 650
     },
-     # --- FRIBRAS DE VIDRO ---
+     # --- MANTAS DE FIBRA DE VIDRO ---
     {
         'nome': 'Manta de Fibra de Vidro (Uso Industrial) 48kg/m³',
         'k_func': '0.00000018 * T**2 + 0.00009 * T + 0.036',
         't_min': 20,
         't_max': 540
-    }
+    }, 
     {
         'nome': 'Manta de fibra de vidro 130Kg/m³ até 800°C',
         'k_func': '0.0286 * math.exp(0.0029 * T)',
@@ -110,8 +110,7 @@ MATERIALS = [
         'k_func': '0.00017*T + 0.041',
         't_min': -268,
         't_max': 430
-    }
-        # --- ISOLANTES GRANULARES E CIMENTÍCIOS ---
+    },
     {
         'nome': 'Perlita Expandida (Granular)',
         'k_func': '0.00011 * T + 0.045',
@@ -148,7 +147,7 @@ MATERIALS = [
 
 FINISHES = [
     {
-        'acabamento': 'Jaqueta Térmica Removível (Tecido)',
+        'acabamento': 'Jaqueta térmica removível (Tecido)',
         'emissividade': 0.90
     },
     {
@@ -197,7 +196,7 @@ FINISHES = [
 COMBUSTIVEIS = {
     # Valor de "v" (custo) é um placeholder. "pc" é a energia em kWh/ton.
     # "fator_emissao" agora representa a média da geração por gás natural (kg CO2/ton vapor).
-    "Vapor (ton)":                       {"v": 150.00, "pc": 628.00, "ef": 1.00, "fator_emissao": 134.0},
+    "Vapor (ton)":                       {"v": 150.00, "pc": 628.00, "ef": 1.00, "fator_emissao": 135.0},
     
     "Eletricidade (kWh)":                {"v": 0.75, "pc": 1.00,  "ef": 1.00, "fator_emissao": 0.0358},
     "Gás Natural (m³)":                  {"v": 3.60, "pc": 9.65,  "ef": 0.75, "fator_emissao": 2.0},
