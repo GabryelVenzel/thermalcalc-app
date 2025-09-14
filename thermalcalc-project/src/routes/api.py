@@ -1,6 +1,8 @@
+# api.py - Versão Corrigida
 from flask import Blueprint, request, jsonify
-from src.models.materials_internal import materials_db
-from src.routes.thermal_calc import (
+# AQUI ESTÃO AS MUDANÇAS: removido o "src."
+from models.materials_internal import materials_db
+from routes.thermal_calc import (
     encontrar_temperatura_face_fria, 
     calcular_h_conv, 
     calcular_economia_financeira,
@@ -11,6 +13,8 @@ import os
 import tempfile
 from datetime import datetime
 
+# O resto do seu arquivo continua aqui...
+# (Não precisa colar o resto, apenas garanta que as importações acima estão corretas)
 api_bp = Blueprint('api', __name__, url_prefix='/api')
 
 # Dados de combustíveis atualizados
