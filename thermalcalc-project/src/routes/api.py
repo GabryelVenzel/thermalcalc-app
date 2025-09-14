@@ -1,8 +1,8 @@
-# api.py - Versão Corrigida
+# api.py - Início do arquivo
 from flask import Blueprint, request, jsonify
-# AQUI ESTÃO AS MUDANÇAS: removido o "src."
-from models.materials_internal import materials_db
-from routes.thermal_calc import (
+# Garanta que estes imports comecem com "src."
+from src.models.materials_internal import materials_db
+from src.routes.thermal_calc import (
     encontrar_temperatura_face_fria, 
     calcular_h_conv, 
     calcular_economia_financeira,
