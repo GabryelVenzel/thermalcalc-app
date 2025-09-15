@@ -53,7 +53,7 @@ MATERIALS = [
         'k_func': '0.00000018 * T**2 + 0.00009 * T + 0.036',
         't_min': 20,
         't_max': 540
-    }
+    },
     {
         'nome': 'Manta de fibra de vidro 130Kg/m³ até 800°C',
         'k_func': '0.0286 * math.exp(0.0029 * T)',
@@ -110,7 +110,7 @@ MATERIALS = [
         'k_func': '0.00017*T + 0.041',
         't_min': -268,
         't_max': 430
-    }
+    },
         # --- ISOLANTES GRANULARES E CIMENTÍCIOS ---
     {
         'nome': 'Perlita Expandida (Granular)',
@@ -190,7 +190,7 @@ FINISHES = [
     {
         'acabamento': 'Superfície Pintada (Tinta Alumínio)',
         'emissividade': 0.31
-    }
+    },
 ]
 
 # Combustíveis para cálculo financeiro
